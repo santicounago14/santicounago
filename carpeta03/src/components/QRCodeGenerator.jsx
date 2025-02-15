@@ -39,7 +39,7 @@ function QRCodeGenerator() {
       <button onClick={generateQR}>Generar QR</button>
       {qrValue && (
         <div className="qr-display" ref={qrRef}>
-          <QRCodeCanvas value={qrValue} size={150} />
+          <QRCodeCanvas value={qrValue} size={200} level="H" />
           <p>Contenido: {qrValue}</p>
           <button onClick={downloadQR}>Descargar PNG</button>
         </div>

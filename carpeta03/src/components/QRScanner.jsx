@@ -12,7 +12,11 @@ function QRScanner({ onScan, currentScan }) {
       console.log("🔵 Inicializando Html5QrcodeScanner...");
       scannerRef.current = new Html5QrcodeScanner(
         "reader",
-        { fps: 10, qrbox: 250 },
+        {
+          fps: 10,
+          qrbox: { width: 400, height: 400 },
+          facingMode: "environment",
+        },
         false
       );
 
