@@ -5,7 +5,7 @@ function Player({ player, setPlayers }) {
   const [currentScan, setCurrentScan] = useState(1);
 
   const handleScan = (qrData) => {
-    console.log(`📸 Escaneando carta ${currentScan}:`, qrData);
+    console.log(`📸  Escaneando carta ${currentScan}:`, qrData);
 
     setPlayers((prevPlayers) =>
       prevPlayers.map((p) =>
