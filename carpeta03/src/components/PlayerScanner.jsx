@@ -17,7 +17,12 @@ function PlayerScanner({ playerName }) {
     <div className="player-scanner">
       <h2>Jugador: {playerName}</h2>
       {currentStep <= totalSteps ? (
-        <ScanStep step={currentStep} onComplete={handleStepComplete} />
+        // Agregamos key para forzar que se monte un nuevo componente en cada paso.
+        <ScanStep
+          key={currentStep}
+          step={currentStep}
+          onComplete={handleStepComplete}
+        />
       ) : (
         <div className="results">
           <h3>Todos los códigos escaneados:</h3>
