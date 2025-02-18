@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ScanStep from "./ScanStep";
+import SummaryScreen from "./SummaryScreen";
 
 function PlayerScanner({ playerName }) {
   const totalSteps = 4;
@@ -7,36 +8,44 @@ function PlayerScanner({ playerName }) {
   const [scannedCodes, setScannedCodes] = useState([]);
 
   const handleStepComplete = (code) => {
-    setScannedCodes([...scannedCodes, code]);
+    // Guardamos el código del paso actual
+    setScannedCodes((prevCodes) => [...prevCodes, code]);
+    // Si aún no hemos completado el total de pasos, avanzamos al siguiente
     if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      // Si completamos el paso 4, avanzamos a la pantalla de resumen
       setCurrentStep(currentStep + 1);
     }
   };
 
-  return (
-    <div className="player-scanner">
-      <h2>Jugador: {playerName}</h2>
-      {currentStep <= totalSteps ? (
-        // Agregamos key para forzar que se monte un nuevo componente en cada paso.
+  const handleRestart = () => {
+    // Reiniciamos el proceso (opcional)
+    setCurrentStep(1);
+    setScannedCodes([]);
+  };
+
+  if (currentStep <= totalSteps) {
+    return (
+      <div className="player-scanner">
+        <h2>Jugador: {playerName}</h2>
+        {/* La key forzará que cada paso se monte como nuevo */}
         <ScanStep
           key={currentStep}
           step={currentStep}
           onComplete={handleStepComplete}
         />
-      ) : (
-        <div className="results">
-          <h3>Todos los códigos escaneados:</h3>
-          <ul>
-            {scannedCodes.map((code, index) => (
-              <li key={index}>
-                Carta {index + 1}: {code}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return (
+      <SummaryScreen
+        scannedCodes={scannedCodes}
+        playerName={playerName}
+        onRestart={handleRestart}
+      />
+    );
+  }
 }
 
 export default PlayerScanner;
