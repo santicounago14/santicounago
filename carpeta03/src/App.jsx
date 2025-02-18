@@ -1,32 +1,34 @@
 import { useState } from "react";
-import PlayerList from "./components/PlayerList";
-import QRCodeGenerator from "./components/QRCodeGenerator";
+import PlayerScanner from "./components/PlayerScanner";
 import "./styles.css";
 
 function App() {
-  const [players, setPlayers] = useState([]);
   const [playerName, setPlayerName] = useState("");
+  const [submittedName, setSubmittedName] = useState("");
 
-  const addPlayer = () => {
-    if (playerName.trim() === "") return;
-    setPlayers([...players, { id: Date.now(), name: playerName, qrCodes: [] }]);
-    setPlayerName("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (playerName.trim() !== "") {
+      setSubmittedName(playerName.trim());
+    }
   };
 
   return (
     <div className="container">
       <h1>Juego de QR</h1>
-      <QRCodeGenerator />
-      <div>
-        <input
-          type="text"
-          value={playerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-          placeholder="Nombre del jugador"
-        />
-        <button onClick={addPlayer}>Agregar jugador</button>
-      </div>
-      <PlayerList players={players} setPlayers={setPlayers} />
+      {submittedName === "" ? (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Ingresa el nombre del jugador"
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+          />
+          <button type="submit">Comenzar</button>
+        </form>
+      ) : (
+        <PlayerScanner playerName={submittedName} />
+      )}
     </div>
   );
 }
