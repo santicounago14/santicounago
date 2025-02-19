@@ -15,16 +15,19 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Juego de QR</h1>
+      {/* <img src="/public/logo.svg" /> */}
+      <h1>¡Hola!</h1>
+      <h3>Te damos la bienvenida</h3>
       {submittedName === "" ? (
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Ingresa el nombre del jugador"
+            placeholder="Ingresa tu nombre"
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
+            required
           />
-          <button type="submit">Comenzar</button>
+          <button type="submit">¡Comenzar!</button>
         </form>
       ) : (
         <PlayerScanner playerName={submittedName} />
