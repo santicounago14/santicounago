@@ -7,25 +7,27 @@ function ScanStep({ step, onComplete }) {
 
   // Mapeo de códigos a descripciones (agrega aquí todas las cartas necesarias)
   const cardMapping = {
-    "contexto-01": "Descripción para carta de contexto 1",
-    "contexto-02": "Descripción para carta de contexto 2",
-    "contexto-03": "Descripción para carta de contexto 3",
-    "contexto-04": "Descripción para carta de contexto 4",
+    "contexto-01": "usuario en movimiento",
+    "contexto-02": "dispositivo pequeño",
+    "contexto-03": "ambiente con mala conexión",
+    "contexto-04": "ambiente con luz intensa",
 
     "problema-01": "botones pequeños e incómodos",
-    "problema-02": "Descripción para carta de problema 2",
-    "problema-03": "Descripción para carta de problema 3",
-    "problema-04": "Descripción para carta de problema 4",
+    "problema-02": "interfaz sobrecargada",
+    "problema-03": "falta de feedback al usuario",
+    "problema-04": "menú resulta muy confuso",
 
-    "solucion-01": "Descripción para carta de solución 1",
-    "solucion-02": "Descripción para carta de solución 2",
-    "solucion-03": "Descripción para carta de solución 3",
-    "solucion-04": "Descripción para carta de solución 4",
+    "solucion-01": "agrandar botones y aumentar espacios",
+    "solucion-02": "simplificar la interfaz eliminando elementos",
+    "solucion-03": "mejorar el contraste y la legibilidad",
+    "solucion-04": "agregar comandos por voz",
+    "solucion-05": "introducir accesos rápidos y personalizados",
 
-    "insight-01": "Descripción para carta de insight 1",
-    "insight-02": "Descripción para carta de insight 2",
-    "insight-03": "Descripción para carta de insight 3",
-    "insight-04": "Descripción para carta de insight 4",
+    "insight-01": "el usuario repite siempre la misma acción",
+    "insight-02": "el usuario usa la app con una mano sola",
+    "insight-03": "test de usabilidad revela confusión en el menú",
+    "insight-04": "la mayoría prefiere controles por voz",
+    "insight-05": "los usuarios prefieren una interfaz más simple",
   };
 
   const handleScan = (code) => {
