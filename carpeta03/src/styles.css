@@ -182,3 +182,35 @@ button {
   font-size: 15px;
   margin: 0px !important;
 }
+
+.resultsTitle {
+  margin: 0px !important;
+  font-weight: 600;
+}
+
+.summary-card {
+  background-color: #fafafa;
+  padding: 20px 30px;
+  margin: 15px 0px;
+  border-radius: 18px;
+}
+
+.summary-card h4 {
+  font-weight: 500;
+  color: #494949;
+  margin: 15px 0px;
+}
+
+.step-summary {
+  margin-bottom: 10px !important;
+  padding: 15px 30px;
+  font-size: 14px;
+  border-radius: 32px;
+  font-weight: 600 !important;
+  letter-spacing: -0.3px;
+  margin-bottom: -20px !important;
+}
+
+.no-bg {
+  background-color: transparent !important;
+}
