@@ -8,17 +8,16 @@ function PlayerScanner({ playerName }) {
   const [scannedCodes, setScannedCodes] = useState([]);
 
   const handleStepComplete = (code) => {
-    setScannedCodes((prevCodes) => [...prevCodes, code]);
-    if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
-    }
+    setScannedCodes([...scannedCodes, code]);
+    // Incrementamos siempre el contador, de modo que al finalizar el paso 4, currentStep sea 5
+    setCurrentStep(currentStep + 1);
   };
 
-  // Cuando se completan los 4 pasos, se muestra el resumen.
   if (currentStep <= totalSteps) {
     return (
       <div className="player-scanner">
         <h2>Jugador: {playerName}</h2>
+        {/* Se fuerza el remount con key para cada paso */}
         <ScanStep
           key={currentStep}
           step={currentStep}
