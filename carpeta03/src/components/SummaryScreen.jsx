@@ -86,9 +86,11 @@ function SummaryScreen({ scannedCodes, playerName, onRestart }) {
 
     const validSolutions = validMapping[context]?.[problem]?.[insight] || [];
     if (validSolutions.includes(solution)) {
-      setVerificationResult("¡Solución correcta!");
+      setVerificationResult("¡Felicitaciones! Tu solución es correcta :)");
     } else {
-      setVerificationResult("Solución incorrecta. Revisa tus cartas.");
+      setVerificationResult(
+        "¡Tu solución no es correcta! Revisa tus cartas y prueba nuevamente."
+      );
     }
   };
 
