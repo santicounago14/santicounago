@@ -5,7 +5,7 @@ function ScanStep({ step, onComplete }) {
   const [scannedCode, setScannedCode] = useState(null);
   const containerId = `qr-scanner-step-${step}`;
 
-  // Mapeo de códigos a descripciones con 4 cartas por cada tipo.
+  // Mapeo de códigos a descripciones (agrega aquí todas las cartas necesarias)
   const cardMapping = {
     "contexto-01": "Descripción para carta de contexto 1",
     "contexto-02": "Descripción para carta de contexto 2",
@@ -29,7 +29,6 @@ function ScanStep({ step, onComplete }) {
   };
 
   const handleScan = (code) => {
-    // Si el código está en el mapeo, se transforma a su descripción
     const transformed = cardMapping[code] || code;
     setScannedCode(transformed);
   };
@@ -44,7 +43,7 @@ function ScanStep({ step, onComplete }) {
     }
   };
 
-  // Título del paso según el número de paso
+  // Definimos el título del paso según el número de paso.
   const stepTitle =
     step === 1
       ? "Carta de contexto"
@@ -54,6 +53,9 @@ function ScanStep({ step, onComplete }) {
       ? "Carta de solución"
       : "Carta de insight";
 
+  // Si es el último paso (4) el botón mostrará "Ver resultados"
+  const buttonText = step === 4 ? "Ver resultados" : "Continuar";
+
   return (
     <div className="scan-step">
       <h3 className={`step-title step-${step}`}>{stepTitle}</h3>
@@ -62,10 +64,8 @@ function ScanStep({ step, onComplete }) {
       ) : (
         <div>
           <p>✅ Código escaneado: {scannedCode}</p>
-          <button onClick={handleContinue}>Siguiente carta</button>
-          <button className="retry" onClick={handleRetry}>
-            Volver a escanear
-          </button>
+          <button onClick={handleRetry}>Reintentar</button>
+          <button onClick={handleContinue}>{buttonText}</button>
         </div>
       )}
     </div>
