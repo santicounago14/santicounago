@@ -28,7 +28,8 @@ function PlayerScanner({ playerName }) {
   if (currentStep <= totalSteps) {
     return (
       <div className="player-scanner">
-        <h2>Jugador: {playerName}</h2>
+        <h2 className="playerTitle">Jugador: {playerName}</h2>
+        <h4 className="subtitlePlayer">Escanear cartas</h4>
         {/* La key forzará que cada paso se monte como nuevo */}
         <ScanStep
           key={currentStep}

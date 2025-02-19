@@ -1,5 +1,6 @@
 * {
   font-family: "Mona Sans", serif;
+  letter-spacing: -0.3px !important;
 }
 
 .container {
@@ -52,6 +53,21 @@ button {
   font-size: 15px;
 }
 
+.playerTitle {
+  font-weight: 600;
+  color: #494949;
+  margin-top: 0px !important;
+  margin-bottom: 2px !important;
+  font-size: 26px;
+}
+
+.subtitlePlayer {
+  color: #898989;
+  font-weight: 400;
+  margin: 0px !important;
+  margin-bottom: 30px !important;
+}
+
 .players-container {
   margin-top: 20px;
 }
@@ -98,4 +114,55 @@ button {
 
 .scan-step {
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-step video {
+  width: 80% !important;
+  border-radius: 30px;
+}
+
+#qr-scanner-step-1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos generales para el título del paso */
+.step-title {
+  margin-bottom: 10px !important;
+  padding: 15px 30px;
+  font-size: 14px;
+  border-radius: 32px;
+  font-weight: 600 !important;
+  letter-spacing: -0.3px;
+  margin-bottom: 20px !important;
+}
+
+/* Estilos para el paso 1: Carta de contexto */
+.step-1 {
+  color: #f95db7 !important;
+  background-color: #fff1f9;
+}
+
+/* Estilos para el paso 2: Carta de problema */
+.step-2 {
+  color: #0095ff !important;
+  background-color: #d7eefe;
+}
+
+/* Estilos para el paso 3: Carta de solución */
+.step-3 {
+  color: #78bd47 !important;
+  background-color: #cce9b8;
+}
+
+/* Estilos para el paso 4: Carta de insight */
+.step-4 {
+  color: #ff773f !important;
+  background-color: #e0bfb1;
 }

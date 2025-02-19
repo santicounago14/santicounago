@@ -5,6 +5,14 @@ function ScanStep({ step, onComplete }) {
   const [scannedCode, setScannedCode] = useState(null);
   const containerId = `qr-scanner-step-${step}`;
 
+  // Map para asociar cada paso con el título correspondiente.
+  const stepTitles = {
+    1: "Carta de contexto",
+    2: "Carta de problema",
+    3: "Carta de solución",
+    4: "Carta de insight",
+  };
+
   const handleScan = (code) => {
     setScannedCode(code);
   };
@@ -21,7 +29,9 @@ function ScanStep({ step, onComplete }) {
 
   return (
     <div className="scan-step">
-      <h3>Paso {step}: Escanea la carta</h3>
+      {/* Título del paso con una clase dinámica */}
+      <h3 className={`step-title step-${step}`}>{stepTitles[step]}</h3>
+
       {scannedCode === null ? (
         <QRScanner onScan={handleScan} containerId={containerId} />
       ) : (
