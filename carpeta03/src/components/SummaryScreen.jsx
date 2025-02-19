@@ -12,8 +12,8 @@ function SummaryScreen({ scannedCodes, playerName, onRestart }) {
           </li>
         ))}
       </ul>
-      {/* Puedes agregar un botón para reiniciar el proceso si lo deseas */}
-      <button onClick={onRestart}>Reiniciar</button>
+      {/* Puedes agregar un botón para reiniciar el proceso, si lo deseas */}
+      {onRestart && <button onClick={onRestart}>Reiniciar</button>}
     </div>
   );
 }

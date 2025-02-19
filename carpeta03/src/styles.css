@@ -125,7 +125,10 @@ button {
   border-radius: 30px;
 }
 
-#qr-scanner-step-1 {
+#qr-scanner-step-1,
+#qr-scanner-step-2,
+#qr-scanner-step-3,
+#qr-scanner-step-4 {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -164,5 +167,18 @@ button {
 /* Estilos para el paso 4: Carta de insight */
 .step-4 {
   color: #ff773f !important;
-  background-color: #e0bfb1;
+  background-color: #fff3ee;
+}
+
+.retry {
+  padding: 18px 25px;
+  background: none !important;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0px !important;
 }
