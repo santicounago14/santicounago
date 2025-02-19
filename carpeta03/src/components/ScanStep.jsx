@@ -64,7 +64,7 @@ function ScanStep({ step, onComplete }) {
       ) : (
         <div>
           <p>✅ Código escaneado: {scannedCode}</p>
-          <button onClick={handleContinue}>Siguiente carta</button>
+          <button onClick={handleContinue}>{buttonText}</button>
           <button className="retry" onClick={handleRetry}>
             Volver a escanear
           </button>
