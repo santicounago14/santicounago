@@ -98,7 +98,7 @@ function SummaryScreen({ scannedCodes, playerName, onRestart }) {
       <h3>Cartas escaneadas</h3>
       {scannedCodes.map((code, index) => (
         <div key={index} className="summary-card">
-          <h3 className={`card-type step${index + 1}`}>
+          <h3 className={`card-type step-summary step${index + 1} no-bg`}>
             {cardTypeMapping[index] || "Carta"}
           </h3>
           <h4 className="card-content">{code}</h4>
